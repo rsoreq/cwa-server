@@ -22,6 +22,7 @@ jobs:
           paths:
             - ~/.m2
           key: cwa-server-{{ checksum "~/pom-checksum" }}
+      - run: mvn failsafe:integration-test
       - run: mvn --batch-mode package
       - run:
           name: Save test results
